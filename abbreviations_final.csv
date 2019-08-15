@@ -1,0 +1,23 @@
+Common Label,Feature Variants,Observed in theme nodes
+American_Medical_Association,A[.]?M[.]?A[.]?,Yes
+American_Medical_Association,American Medical Assn[.]?,No
+American_Medical_Association,American Medical Association,Yes
+Center_for_Tobacco_Products,C[.]?T[.]?P[.]?,No
+Center_for_Tobacco_Products,Center for Tobacco Products,Yes
+Centers_for_Disease_Control,C[.]?D[.]?C[.]?,Yes
+Centers_for_Disease_Control,Centers for Disease Control,Yes
+Centers_for_Disease_Control,Centers for Disease Control and Prevention,Yes
+e_cigarette,e-? ?cigs?,Yes
+e_cigarette,e-? ?cigarettes?,Yes
+e_cigarette,electric cigarettes?,
+e_cigarette,electronic-? ?cigarettes?,Yes
+e_cigarette,e-? ?smokes?,Yes
+Food_and_Drug_Administration,F[.]?D[.]?A[.]?,Yes
+Food_and_Drug_Administration,Food & Drug Administration,
+Food_and_Drug_Administration,Food and Drug Administration,Yes
+Food_and_Drug_Administration,Food and Drug Association,Yes
+National_Institute_on_Drug_Abuse,National Institute of Drug Abuse,Yes
+National_Institute_on_Drug_Abuse,National Institute on Drug Abuse,
+National_Institute_on_Drug_Abuse,N[.]?I[.]?D[.]?A[.]?,No
+National_Institutes_of_Health,National Institutes of Health,Yes
+National_Institutes_of_Health,N[.]?I[.]?H[.]?,No
