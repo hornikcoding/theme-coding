@@ -3,9 +3,7 @@
 # Laura Gibson
 # April 2017
 # Revised April 2018 to use text files rather than api loop
-#
-# use the TCORS database api to pull articles ALREADY CODED AS TOBACCO-RELEVANT, code them and return codes
-#See information on the api parameters in \2_Content Analysis\Database-ASC IT\Introduction to the Database.doc
+
 
 
 # --- import required modules 
@@ -19,20 +17,16 @@ import sys
 import pickle
 import datetime
 
-sys.path.append('C:/Users/lgibson/Desktop/long-form_theme_classifiers')
-
 from utils import class_functions2 as cf
 
 #Change to the appropriate directory 
-input_dir = 'C:/Users/lgibson/Desktop/long-form_theme_classifiers'
+input_dir = '.'
 os.chdir(input_dir) 
 
 # I've moved everything to be in the above directory, so we don't need all of these other locations
 #this is where the text to be coded lives
-#mdata_dir = '//FILE3/TobaccoSurveyData/P50 - Youth Tobacco Tracking/2_Content Analysis/Data/_Python/Ecig-themes/data/mturk_coded/split'
 mdata_dir = input_dir
 #this is where you want the output to go
-#out_dir_base = '//FILE3/TobaccoSurveyData/P50 - Youth Tobacco Tracking/2_Content Analysis/Data/_Python/Ecig-themes/scripts/Classifiercode_themes/'
 out_dir_base = input_dir
 
 version = '_hopkins2_ctob'
