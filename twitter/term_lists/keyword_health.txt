@@ -1,0 +1,71 @@
+cancers?
+causes?d?
+causal
+cause of
+harm\S*
+deadly
+deaths
+die
+# risks?
+danger\S*
+lifestyles?
+saves? lives
+life choices?
+life expectancy
+# affects?
+leading causes?
+hazard\S*
+(un)?healthy
+(un)?healthier
+# safer?
+kills?
+# conditions? 
+associated?s? with
+mortal(ity)?
+diseases?
+# bad for
+medical
+harm reduction
+diabetes
+strokes?
+# too frequent -- 'health' put on not-enough list
+# health
+# healthy
+# unhealthy
+# effects
+kidneys?
+infections?
+infectious
+obese
+obesity
+bad for you
+smoking is bad
+exposed to
+# risky
+smoker lungs?
+cigarettes are bad
+# bad for your
+## 
+life saving
+saves? lives
+warning labels?
+emphysema
+trouble breathing
+respiratory
+pulmonary
+fibrosis
+shortness of breath
+asthma
+cough(ing)
+hacking up
+hacked up
+hack up
+it hurts
+head ?aches?
+aching
+fucked up
+toxic
+popcorn lung
+formaldehyde
+murderedbytobacco
+ecigssavelives

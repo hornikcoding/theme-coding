@@ -1,0 +1,23 @@
+vagina
+white people
+rellos?
+schools?
+baby
+babies
+the kid
+that kid
+quit
+fields?
+flicks?
+child
+# kids?
+# tickets
+white ?boys?
+black ?boys?
+white girls?
+black girls?
+girls?
+# as in 'check out this bad boy'
+bad boys?
+# for '$18', '18in', etc.
+\$?1\d[\"\$]|1\din\b|1\d ?inche?s?

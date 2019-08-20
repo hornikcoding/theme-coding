@@ -1,0 +1,27 @@
+addict\S*
+habit\S*
+craving\S*
+crave\S
+hooked
+hooking
+depend\S+
+inject
+turkey
+craving
+addict\S+
+additive\S
+chain smok\w*
+habits?
+craving
+craves?
+stopvaping
+# bc of analogies e.g. 'as addictive as X', or 'X but for cigs'
+heroine?
+narcan
+suboxone
+methadone
+# late additions
+need( a)? cig(arette)?s?
+in need of
+cant? quit
+cant? live without

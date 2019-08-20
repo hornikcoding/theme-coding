@@ -1,0 +1,114 @@
+banned
+banning
+lawsuit
+laws?
+i?l?legal
+legalize\S
+litigation
+legislation
+#
+# careful w 'regulation' bc of chipset
+# regulating
+# regulators?
+regulations
+regulated?
+regulatory
+overregulations?
+restrictions?
+#
+#
+prohibits?
+rules
+court
+verdicts?
+policy
+policies
+veto
+vetoes
+vetoed
+vote
+voted
+votes
+penalty for selling
+penalties for selling
+stop selling
+stopped selling
+# stop the sales?
+#
+#
+warning labels?
+food and drug administration
+fda
+f.d.a.
+#
+#
+raise
+raising
+raised
+increase[sd]?
+increasing
+# higher
+# high
+#
+#
+tax
+taxe[sd]?
+taxing
+#
+#
+raised?
+raising
+increase[sd]?
+increasing
+restrictions?
+restricted
+#
+#
+age\S 21
+age\S 18
+18 or older
+21 or older
+18 years old
+21 years old
+#
+#
+tax hikes?
+taxes
+untaxed
+#
+#
+# 'ban'-related terms
+ban e ?cig\S*
+ban e ?cig\S*
+ban e-?cig\S*
+ban e[ -]?liquids?
+e-? ?cig\w*? ban\w*
+# e cig(arettes)? ban
+vape ban
+ban sale
+smoking ban
+tobacco ban
+ban selling
+compliant
+activists?
+# ADDED FEB08
+officials
+blocks? sales?
+# gov
+pres
+senator
+councilor
+propose*
+retailers?
+age limit
+underaged?
+under aged?
+policys
+ftc
+ukhouseoflords
+oversight
+public ?health
+warning labels?
+graphic warnings?
+plain packaging
+petition

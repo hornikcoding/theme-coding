@@ -1,0 +1,15 @@
+die
+dead
+causal
+# risks? [taken off]
+danger\S*
+kills?
+# effects
+associated?s? with
+health
+medical
+prevent 
+fucked up
+cause
+# (un)?healthier
+cancer

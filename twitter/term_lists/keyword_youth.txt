@@ -1,0 +1,75 @@
+schools?
+my school
+campus
+campuses
+campuss
+college*
+university?i?e?s?
+# 
+students?
+minors
+youths?
+high ?schoolers
+high-schoolers
+high schools?
+youngsters?
+young people
+young age
+young users?
+young smokers?
+teen
+teenaged?
+teens
+teenager?
+teenagers
+under ?-?aged?
+underaged?
+# child*
+kids?
+# 
+freshm[ea]n
+sophomores?
+bully
+bullying
+bullies
+junior year
+senior year
+children
+baby
+babies
+vaccinate
+# vaccine
+kids buy(ing)?
+without permission
+legal guardians?
+# tickets
+# truthorange
+as young as
+the kid
+this kid
+# girls? goes in 'not enough' too, bc 'a hot girl'
+# also 'bad boys' is in not enough
+boys?
+girls?
+frat
+# fraternity
+fraternities
+sorority
+# sorority
+suspended
+suspends?
+# ADDITIONS FEB08 BELOW HERE
+under-? ?1[689]s?
+under-? ?21s?
+child
+in school
+at school
+in class
+18
+age limit
+underaged?
+under aged?
+carded
+1\dyr[- ]old
+# will not appear often, but if it does, def a hit
+(?:from|since|when) i was \w* 1\d ?[y\W]*
