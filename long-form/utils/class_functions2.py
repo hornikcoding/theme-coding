@@ -115,7 +115,7 @@ def file_split(df, rand, fname, s, prop=.2):
     prop = test proportion
     '''
     print('\n#### SPLITTING FILE into Train and Test')
-    split_dir = '//FILE3/TobaccoSurveyData/P50 - Youth Tobacco Tracking/2_Content Analysis/Data/_Python/Ecig-themes/data/mturk_coded/split'
+    split_dir = '.'
 
     if rand==1:
         train, test = train_test_split(df, test_size=prop)
@@ -144,7 +144,7 @@ def file_split_rev(df, fname, prop=.2):
     prop = test proportion
     '''
     print('\n#### SPLITTING FILE into Train and Test')
-    split_dir = '//FILE3/TobaccoSurveyData/P50 - Youth Tobacco Tracking/2_Content Analysis/Data/_Python/Ecig-themes/data/mturk_coded/split'
+    split_dir = '.'
 
     train, test = train_test_split(df, test_size=prop)
 
