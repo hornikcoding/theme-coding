@@ -1111,7 +1111,7 @@ def crossvalidate(X_final, clf, y, model, folds=5):
     print('\n#### DOING FINAL CROSS-VALIDATION - with optimal number of features')
 
     #get the matrix with this list of features
-#   MATT - this is giving me a deprecation warning: 
+#   This gives a deprecation warning: 
 #   Passing 1d arrays as data is deprecated in 0.17 and willraise ValueError in 0.19. Reshape your data either using X.reshape(-1, 1) if your data has a single feature or X.reshape(1, -1) if it contains a single sample.
     #f1 scores from each fold
     cv=cross_validation.cross_val_score(clf, X_final, y, cv=folds, scoring='f1')
