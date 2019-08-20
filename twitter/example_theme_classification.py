@@ -11,8 +11,7 @@ from theme_clf import *
 # REPLACE WITH PATH TO WHEREVER YOU SAVE THIS FOLDER
 # make sure your working directory is set to location of `theme_clf.py`!
 os.chdir(os.path.join(
-  'C:/Users/leffel-timothy/Desktop/projjies/HMC_local/UPenn/twitter/',
-  'twitter_regex_theme_classifiers'))
+  '.'))
 
 
 # input/output files 
