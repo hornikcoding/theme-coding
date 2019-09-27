@@ -1,0 +1,146 @@
+---
+title: "UPenn Youtube Themes"
+subtitle: "Preprocess training data, evaluation data, and unlabeled data"
+author: "`leffel-timothy at norc.org`, july27/2018, updated by `gibla at pennmedicine.upenn.edu`, sept27/2019"
+date: ""
+output: html_document
+---
+
+This notebook prepares unlabeled Youtube videos datasets for assigning themes via ensemble classifiers. The output file is: 
+
+- main dataset to assign predictions to: `"data/prepped/youtube_videos-toy-clean-prepped.csv"`
+
+The main unlabeled example dataset (`"youtube_videos-toy-clean.csv"`) requires only 1 step because it has already been cleaned up a bit (labels were converted to booleans, text fields concatenated, etc.) The only important transformation to this dataset is the preprocessing of `text_blob` (see [Sec 3. below](#prep_motherload) for the code):
+
+- preprocess text to create `text_blob_scrubbed`, which is used for classification (via the function `preprocess_youtube_text()` defined in the file `youtube_themes_preprocessing_functions.r`). 
+
+If you have files direct from the YouTube api -- you will also need to: 
+- join videos with captions by `video_id`; 
+- extract `YYYY-MM-DD`-formatted dates from `video_published_at` field; 
+- concatenate all available text fields to form `text_blob`; and 
+
+
+### 0. Session setup 
+```{r setup}
+# NOTE: set `eval=TRUE` to run all code when building .html output
+knitr::opts_chunk$set(echo=TRUE, eval=TRUE)
+
+# NOTE: set `write_prepped_data_files <- TRUE` to save output files on build
+write_prepped_data_files <- TRUE
+```
+
+```{r dependencies}
+# a couple of misc functions from NLP packages are required for preprocessing 
+# if error, call `install.packages(c("WHICHEVER","ARE","NOT","INSTALLED"))` 
+dependencies <- c("dplyr", "magrittr", "textstem", "stopwords", "stringi")
+stopifnot(dependencies %in% rownames(installed.packages())); rm(dependencies)
+
+library(dplyr, warn.conflicts=FALSE)
+library(magrittr)
+
+# load some text preprocessing functions 
+source("youtube_themes_preprocessing_functions.r")
+
+# utility for compactly referring to theme identifiers 
+themes <- function(sfx=""){
+  paste0(c("addiction", "health", "policy", "youth"), sfx)
+}
+```
+
+```{r files_paths, eval=TRUE}
+infiles <- list(
+  ex_clean = "data/motherload/youtube_videos-toy-clean.csv"
+#  motherload_videos = "data/motherload/file_videos.csv", 
+#  motherload_captions = "data/motherload/file_captions.csv
+  )
+
+outfiles <- list(
+  ex_prepped = "data/prepped/youtube_videos-toy-clean-prepped.csv")
+#  motherload_prepped = "data/prepped/file_videos_prepped.csv")
+
+# check that all required input files exist 
+stopifnot(sapply(infiles, file.exists))
+```
+
+
+
+### 1. Preprocess example data and write to file 
+```{r prep_train_data}
+# takes ~1min to run 
+ex_data <- infiles$ex_clean %>% 
+  read.csv(stringsAsFactors=FALSE) %>% 
+  mutate(has_caption = !is.na(caption)) %>% 
+  select(video_id, tob_ecig, has_caption, ends_with("_label"), text_blob) %>% 
+  mutate(text_blob_scrubbed = preprocess_youtube_text(text_blob))
+
+if (write_prepped_data_files)
+  write.csv(ex_data, outfiles$ex_prepped, row.names=FALSE)
+```
+
+<!-- ### 3. Preprocess all Youtube data[^1] and write to file {#prep_motherload} -->
+
+<!-- [^1]: The example dataset in `r infiles$ex_clean` was already cleaned in exactly this fashion. But they required other steps since the human labels came from messy Excel files. These cleanup steps are not shown here, but rest assured they are unremarkable.  -->
+
+<!-- #### 3.1 Join videos with captions, format dates  -->
+<!-- ```{r join_motherload_caps} -->
+<!-- # read in videos and captions  -->
+<!-- motherload_data <- read.csv(infiles$motherload_videos, sep="\t", as.is=TRUE) -->
+<!-- motherload_caps <- read.csv(infiles$motherload_captions, sep="\t", as.is=TRUE) -->
+
+<!-- # check that captions are joinable with videos (should be all true) -->
+<!-- table(motherload_caps$video_id %in% motherload_data$video_id, useNA="ifany") -->
+
+<!-- # join videos with caps, adding clean `$date` field for easier counting later  -->
+<!-- motherload <- motherload_data %>%  -->
+<!--   select(video_id, video_published_at, ecig_r, tob_r,  -->
+<!--          title, channel_title, description, tags) %>%  -->
+<!--   left_join(motherload_caps, by="video_id") %>%  -->
+<!--   mutate(date = gsub(" \\d{2}:\\d{2}:\\d{2}$", "", video_published_at)) -->
+
+
+<!-- # check availability of captions across all data  -->
+<!-- table(has_caption=!is.na(motherload$caption)) -->
+
+<!-- # check availability of captions across ecig- and tobacco-relevant data  -->
+<!-- table(ecig=motherload$ecig_r, has_caption=!is.na(motherload$caption)) -->
+<!-- table(tob=motherload$tob_r, has_caption=!is.na(motherload$caption)) -->
+
+<!-- # check that dates all converted properly -->
+<!-- table(grepl("^\\d{4}-\\d{2}-\\d{2}$", motherload$date)) -->
+<!-- ``` -->
+
+<!-- #### 3.2 Concatenate text fields -->
+<!-- ```{r concat_motherload_text} -->
+<!-- # will create `$text_blob` column by smooshing together all the text fields   -->
+<!-- text_cols <- c("title", "channel_title", "description", "tags", "caption") -->
+
+<!-- # replace newlines and pipes w spaces (mostly relevant for `$tags` column)  -->
+<!-- motherload[, text_cols] %<>% lapply(function(txt) gsub("\n|\\|", " ", txt)) -->
+
+<!-- # smoosh text fields together, separating by pipe with " " padding  -->
+<!-- motherload$text_blob <- apply(motherload[, text_cols], 1, paste, collapse=" | ") -->
+<!-- ``` -->
+
+<!-- #### 3.3 Preprocess text blob and write to file  -->
+<!-- ```{r prep_motherload_text} -->
+<!-- # next step is memory intensive if `motherload` is big, so clear some memory -->
+<!-- rm(list=c("motherload_caps", "motherload_data", "train_data", "eval_data")) -->
+
+<!-- # preprocess the text, just as was done for train and eval datasets  -->
+<!-- # WARNING: this can take a long time to run (~1min per 2.5k rows) -->
+<!-- # NOTE: if you get stuck here, remove `textclean::replace_non_ascii()` step  -->
+<!-- motherload$text_blob_scrubbed <- preprocess_youtube_text(motherload$text_blob) -->
+
+<!-- # can check distribution of text field length before and after processing  -->
+<!-- # library(ggplot2) -->
+<!-- # dplyr::tibble(raw_nchar=nchar(motherload$text_blob),  -->
+<!-- #               clean_nchar=nchar(motherload$text_blob_scrubbed)) %>%  -->
+<!-- #   reshape2::melt(NULL) %>%  -->
+<!-- #   ggplot(aes(x=value, fill=variable)) +  -->
+<!-- #   geom_density(alpha=.75) + scale_x_log10() -->
+
+
+<!-- if (write_prepped_data_files) -->
+<!--   write.csv(motherload, outfiles$motherload_prepped, row.names=FALSE) -->
+<!-- ``` -->
+
