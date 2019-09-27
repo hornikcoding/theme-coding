@@ -1,0 +1,151 @@
+{
+    "addiction": {
+
+        "vect": {
+            "count": {
+                "min_df": 0.005,
+                "max_features": 1000,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }, 
+            "tfidf": {
+                "min_df": 0.005,
+                "max_features": 1000,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }
+        },
+
+        "clf": {
+            "sgd": {
+                "loss": "modified_huber", 
+                "penalty": "elasticnet", 
+                "l1_ratio": 0.5, 
+                "class_weight": null,
+                "alpha": 0.0001
+            },
+            "dtree": {
+                "criterion": "gini",
+                "min_samples_split": 10,
+                "splitter": "random",
+                "min_samples_leaf": 5
+            }
+        }
+    }, 
+    "health": {
+
+        "vect": {
+            "count": {
+                "min_df": 0.005,
+                "max_features": 1000,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }, 
+            "tfidf": {
+                "min_df": 0.005,
+                "max_features": 1000,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }
+        },
+
+        "clf": {
+            "sgd": {
+                "loss": "modified_huber", 
+                "penalty": "elasticnet", 
+                "l1_ratio": 0.5, 
+                "class_weight": null,
+                "alpha": 0.0001
+            },
+            "dtree": {
+                "criterion": "gini",
+                "min_samples_split": 10,
+                "splitter": "random",
+                "min_samples_leaf": 5
+            }
+        }
+    }, 
+    "policy": {
+
+        "vect": {
+            "count": {
+                "min_df": 0.005,
+                "max_features": 1500,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }, 
+            "tfidf": {
+                "min_df": 0.005,
+                "max_features": 1500,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }
+        },
+
+        "clf": {
+            "sgd": {
+                "loss": "modified_huber", 
+                "penalty": "elasticnet", 
+                "l1_ratio": 0.5, 
+                "class_weight": null,
+                "alpha": 0.0001
+            },
+            "dtree": {
+                "criterion": "gini",
+                "min_samples_split": 10,
+                "splitter": "best",
+                "min_samples_leaf": 5
+            }
+        }
+    }, 
+    "youth": {
+
+        "vect": {
+            "count": {
+                "min_df": 0.005,
+                "max_features": 1500,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }, 
+            "tfidf": {
+                "min_df": 0.005,
+                "max_features": 1500,
+                "ngram_range": [1,1],
+                "strip_accents": "unicode", 
+                "stop_words": "english", 
+                "lowercase": true
+            }
+        },
+
+        "clf": {
+            "sgd": {
+                "loss": "modified_huber", 
+                "penalty": "elasticnet", 
+                "l1_ratio": 0.5, 
+                "class_weight": null,
+                "alpha": 0.0001
+            },
+            "dtree": {
+                "criterion": "gini",
+                "min_samples_split": 10,
+                "splitter": "random",
+                "min_samples_leaf": 5
+            }
+        }
+    }
+}
+
